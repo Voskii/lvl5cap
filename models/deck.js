@@ -2,15 +2,15 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const deckSchema = new Schema({
-    deckTitle: {
+    title: {
         type: String,
-        required: true,
+        // required: true,
     },
-    totalFlashcards: {
+    flashcards: {
         type: Number,
     },
 })
 
 
 
-module.exports = mongoose.model("deckCard", deckSchema)
+module.exports = mongoose.model("Deck", deckSchema)
