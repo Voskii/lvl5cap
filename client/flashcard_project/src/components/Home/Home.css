@@ -1,0 +1,60 @@
+/* .head-container{
+  border: 1px solid black;
+  height: 600px;
+  width: 100%;
+} */
+
+.head-container{
+  background-image: url("./images/headerImage.jpg");
+  height: 500px;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position:top;
+  max-width: 100%;
+
+}
+
+h1{
+  font-family: "Segoue UI", sans-serif;
+  text-align: center;
+  margin-top: 95px;
+}
+
+.about-us-text{
+  font-family: "Segoue UI", sans-serif;
+  text-align: center;
+  margin-left: 95px;
+  margin-right: 95px;
+  margin-bottom: 85px;
+  margin-top: 25px;
+}
+
+.study-habits-image{
+  background-image: url("./images/booksImage.jpg");
+  border-right: 1px solid black;
+  height: 100px;
+  width: 300px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  padding-bottom: 300px;
+  margin-left: 15px;
+}
+.links-outside-image{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  border: 1px solid black;
+}
+
+.list{
+  text-align: center;
+  margin-top: 65px;
+  font-family: "Segoue UI", sans-serif;
+}
+.listItem{
+  font-family: "Segoue UI", sans-serif;
+
+}
+.user-review-carousel{
+  height: 300px;
+}
