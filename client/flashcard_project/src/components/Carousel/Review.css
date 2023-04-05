@@ -1,10 +1,13 @@
-/* .carousel-inner{
+.carousel-inner{
     padding: 1em;
 }
 .card{
     margin: 0 .5em;
     box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
     border: none;
+      height: 300px;
+  padding-bottom:55px;
+  width: 100%;
 }
 .carouselButt{
     background-color: #e1e1e1;
@@ -13,15 +16,10 @@
     top: 50%;
     transform: translateY(-50%);
 }
-/* .slide-carousel{
+.slide-carousel{
   padding-bottom: 330px;
-} */
-/* .slider-carousel{
+}
+.slider-carousel{
   display: flex;
   flex-direction: row;
-} */
-/* .card{
-  height: 300px;
-  padding-bottom:55px;
-  width: 100%;
-} */
+} 
