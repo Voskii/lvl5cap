@@ -4,8 +4,12 @@ import React from 'react'
 import Navbar from '../Navbar/Navbar'
 import "./Home.css"
 import Footer from '../Footer/Footer'
+import UserReview from '../Carousel/UserReview'
+
+
 
 function Home() {
+
   return (
     <>
     <header className='head-container'>
@@ -23,21 +27,21 @@ function Home() {
       <div className = 'study-habits-image'/>
         <div className='list-container'>
           <ul className='list'>Need to Improve your Study Habits??
-              <li className='listItem'>1</li>
-              <li className='listItem'>2</li>
-              <li className='listItem'>3</li>
-              <li className='listItem'>4</li>
-              <li className='listItem'>5</li>
-              <li className='listItem'>6</li>
+              <li className='listItem'><a href='https://psychcentral.com/health/highly-effective-study-habits'>PsychCentral.com</a></li>
+              <li className='listItem'><a href='https://pennstatelearning.psu.edu/study-habits'>Penn State Learning</a></li>
+              <li className='listItem'><a href='https://www.oxfordlearning.com/how-to-study-effectively/'>Oxford Learning</a></li>
+              <li className='listItem'><a href='https://www.thoughtco.com/great-study-habits-1857550'>ThoughtCo.</a></li>
+              <li className='listItem'><a href='https://www.usa.edu/blog/study-techniques/'>University of St. Augustine for Health Sciences</a></li>
+              <li className='listItem'><a href='https://thecollegepost.com/online-study-tools/'>The College Post</a></li>
           
           </ul>
       
         </div>
+        <div></div>
         
     </div>
-    <div className='user-review-carousel'>
-    <h1>Area for User Carousel</h1>
-  </div>
+    <h4>HOW TO USE STUDY BUDDY</h4>
+    <UserReview />
 
     </main>
     <Footer />
@@ -46,3 +50,5 @@ function Home() {
 }
 
 export default Home
+
+
