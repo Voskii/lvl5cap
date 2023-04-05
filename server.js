@@ -1,24 +1,26 @@
 const express = require('express')
-const { default: mongoose } = require('mongoose')
 const app = express()
 const morgan = require('morgan')
+const mongoose = require('mongoose')
 require('dotenv').config
 URI = process.env.URI
 
-app.use(express.json())
-app.use(morgan('dev'))
+//Middleware (for every request)
+app.use('/decks', express.json())
+app.use('/flashcards', express.json()) // looks for a request body and turns it into a 'req.body
+app.use(morgan('dev')) // logs requests to the console
 
-//connect to database
-mongoose.connect(URI)
-    .then(()=> console.log(`connected to db`))
-    .catch(err => console.log(err.message))
+//Connect to database
+mongoose.connect(URI, {dbName: flashcardproject},  console.log("Connected to the DB"))
+    // .then(()=> console.log(`connected to db`))
+    // .catch(err => console.log(err.message))
 
 //Route
 app.use("/cards", require('./routes/cardsRouter.js'))
 app.use("/decks", require('./routes/decksRouter.js'))
 
 //Error handler
-app.use((err, req, res) => {
+app.use((err, req, res, next) => {
     console.log(err)
     return res.send({errMsg: err.message})
 })
