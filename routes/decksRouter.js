@@ -1,5 +1,72 @@
 const express = require('express')
 const decksRouter = express.Router()
+const Deck = require("../models/deck.js")
+
+//get all decks
+decksRouter.get("/", async(req, res, next) => {
+    console.log(typeof(Deck))
+    Deck.find((err, Deck) => {
+        if (err) {
+            res.status(500)
+            return next(err)
+        }
+        return res.status(200).send(Deck)
+    })
+})
+
+// get one 
+// decksRouter.get('/:deckId', (req, res, next) => {
+//     const deckId = req.params.deckId
+//     const foundDeck = Deck.find(deck => deckId === deck._id)
+//     console.log(deckId)
+//     if(!foundDeck){
+//         const err = new Error(`The deck ${deckId} was not found.`)
+//         return next(err)
+//     }
+// })
+
+
+//post one
+decksRouter.post("/", (req, res, next) => {
+    console.log(req.body)
+    const newDeck = new Deck(req.body)
+    newDeck.save((err, savedDeck) => {
+        if(err){
+            res.status(500)
+            return next(err)
+        }
+    return res.status(201).send(savedDeck)
+    })
+})
+
+//delete one
+decksRouter.delete("/:deckId", (req, res, next) =>{
+    Deck.findOneAndDelete({ _id: req.params.deckId }, (err, deletedItem) =>{
+        if(err){
+            res.status(500)
+            return next(err)
+        }
+        return res.status(200).send(`Successfully deleted item ${deletedItem.title} from the database`)
+    })
+})
+
+//get deck by search terms
+decksRouter.get("/search", (req, res, next) => {
+    const {deck} = req.query
+    const pattern = new RegExp(deck)
+    Deck.find(
+        { title: { $regex: pattern, $options: 'i' } },
+        (err, decks) => {
+            if (err) {
+                res.status(500)
+                return next(err)
+            }
+            return res.status(200).send(decks)
+        }
+    )
+})
+
+
 
 
 

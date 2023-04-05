@@ -1,8 +1,8 @@
 import "./Review.css"
 import React from 'react'
- 
+import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
 
-function UserReview({picture}) {
+function UserReview({name, picture, review, stars}) {
   const reviews = [
     {
       id: 1,
@@ -31,27 +31,38 @@ function UserReview({picture}) {
 
 
 return (
-    <div className="carousel-slide" data-bs-ride="carousel">
-    <div className="carousel-item active">
-    <div className="card">
-    <img src={reviews.picture} className=" w-100" alt={reviews.name} />
-    <div className="card-body">
-        <h5 className="card-title">{reviews.name}</h5>
-        <p className="card-text">{reviews.review}</p>
-        <h6 className = "user-ratings"><i className = 'fas fa-stars'>{reviews.stars}</i></h6>
-    </div>
-    </div>
-      <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span className="visually-hidden">Previous</span>
-  </button>
-  <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-    <span className="carousel-control-next-icon" aria-hidden="true"></span>
-    <span className="visually-hidden">Next</span>
-  </button>
-    </div>
-  
-  </div>
+  <CarouselProvider
+        naturalSlideWidth={50}
+        naturalSlideHeight={70}
+        totalSlides={3}
+  orientation="horizontal"
+      children
+      className="carousel-container"
+      visibleSlides={1}
+      isPlaying={true}
+      
+      infinite={true}
+      interval={2000}
+  >
+    <Slider className= "slider-carousel">
+      {reviews.map((data , index) => (
+        <Slide index = {index} data = {data} key = {index} className="slide-carousel">
+        <div className="card">
+        <img src={data.picture} className=" w-100" alt={index.name} />
+        <div className="card-body">
+            <h5 className="card-title">{data.name}</h5>
+            <p className="card-text">{data.review}</p>
+            <h6 className = "user-ratings">{data.stars}<i className = 'fas fa-stars'></i></h6>
+        </div>
+        </div>
+     </Slide> 
+     ))}
+    </Slider>
+      <ButtonBack className="carouselButt">Prev.
+      </ButtonBack>
+      <ButtonNext className="carouselButt">Next
+      </ButtonNext>
+  </CarouselProvider>
   );
 }
 export default UserReview

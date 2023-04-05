@@ -41,6 +41,7 @@ function Home() {
         
     </div>
     <h4>HOW TO USE STUDY BUDDY</h4>
+    
     <UserReview />
 
     </main>
