@@ -1,0 +1,15 @@
+
+.navigation-routes{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: cadetblue;
+  opacity: 80%;
+  border-top: 4px solid darkgoldenrod;
+  border-bottom: 4px solid darkgoldenrod;
+}
+.button-routes{
+  margin-top: 25px;
+  margin-bottom: 25px;
+  font-family: Arial, Helvetica, sans-serif;
+}
