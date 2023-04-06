@@ -3,7 +3,10 @@ import "./Footer.css"
 function Footer() {
   return (
     <footer>
-      <h1>Footer Component</h1>
+    <div className = "logo-image-container">
+    <br />
+      </div>
+    <h1>Study Buddy</h1>
     </footer>
   )
 }
