@@ -8,10 +8,14 @@ const commentSchema = new Schema({
     },
     comment: {
         type: String,
-        required: true
+        required: true,
     },
+    rating: {
+        type: Number,
+        required: true,
+    }
 })
 
 
 
-module.exports = mongoose.model("commentCard", commentSchema)
+module.exports = mongoose.model("Comments", commentSchema)
