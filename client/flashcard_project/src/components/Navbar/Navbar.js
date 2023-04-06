@@ -7,9 +7,8 @@ function Navbar() {
     <div>
       <div className ='navigation-routes'>
       <button className = "button-routes" onClick = {() => navigate("/")}>Go to the Home Page</button>
-  
-      <button className = "button-routes" onClick = {() => navigate("/study")}>Practice for Perfect</button>
-      <button className = "button-routes" onClick={() => navigate("/quiz")}>Quiz yourself</button>
+      <button className = "button-routes" onClick = {() => navigate("/decks")}>Practice for Perfect</button>
+      <button className = "button-routes" onClick={() => navigate("/study")}>Quiz yourself</button>
       </div>
     </div>
   )
