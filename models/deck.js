@@ -4,7 +4,7 @@ const Schema = mongoose.Schema
 const deckSchema = new Schema({
     title: {
         type: String,
-        // required: true,
+        required: true,
     },
     flashcards: {
         type: Number,

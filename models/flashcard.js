@@ -1,11 +1,8 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
+
 const flashcardSchema = new Schema({
-    deckTitle: {
-        type: String,
-        required: true,
-    },
     question: {
         type: String,
         required: true,
@@ -13,6 +10,15 @@ const flashcardSchema = new Schema({
     awnser: {
         type: String,
         required: true,
+    },
+    deckId: {
+        type: Schema.Types.ObjectId,
+        ref: "Deck",
+        required: true
+    },
+    deckTitle: {
+        type: Schema.Types.String,
+        ref: "Deck"
     }
 })
 

@@ -14,18 +14,6 @@ decksRouter.get("/", async(req, res, next) => {
     })
 })
 
-// get one 
-// decksRouter.get('/:deckId', (req, res, next) => {
-//     const deckId = req.params.deckId
-//     const foundDeck = Deck.find(deck => deckId === deck._id)
-//     console.log(deckId)
-//     if(!foundDeck){
-//         const err = new Error(`The deck ${deckId} was not found.`)
-//         return next(err)
-//     }
-// })
-
-
 //post one
 decksRouter.post("/", (req, res, next) => {
     console.log(req.body)
@@ -66,8 +54,28 @@ decksRouter.get("/search", (req, res, next) => {
     )
 })
 
-
-
+//get by query example of a search funciton: localhost:9000/deck/search?deck=2
+decksRouter.get("/search", (req, res, next) => {
+    const { deck } = req.query
+    const pattern = new RegExp(deck)
+    Deck.find({ title: {$regex: pattern, $options: 'i'} }, (err,decks) => {
+        if(err){
+            res.status(500)
+            return next(err)
+        }
+        return res.status(200).send (decks)
+    })
+})
 
 
 module.exports = decksRouter
+
+
+
+
+
+// Postman Deck input form
+// {
+//     "title": "Schema Vocab",
+//     "flashcards": 0
+// }

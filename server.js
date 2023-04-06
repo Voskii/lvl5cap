@@ -7,6 +7,7 @@ uri = process.env.URI
 
 //Middleware (for every request)
 app.use('/deck', express.json())
+app.use('/comments', express.json())
 app.use('/flashcard', express.json()) // looks for a request body and turns it into a 'req.body
 app.use(morgan('dev')) // logs requests to the console
 
@@ -14,8 +15,9 @@ app.use(morgan('dev')) // logs requests to the console
 mongoose.connect(uri, console.log("Connected to the DB"));
 
 //Route. Use these in Postman
-app.use("/flashcard", require('./routes/cardsRouter.js'))
-app.use("/Deck", require('./routes/decksRouter.js'))
+app.use("/flashcards", require('./routes/cardsRouter.js'))
+app.use("/decks", require('./routes/decksRouter.js'))
+app.use("/comments", require('./routes/commentRouter.js'))
 
 //Error handler
 app.use((err, req, res, next) => {
