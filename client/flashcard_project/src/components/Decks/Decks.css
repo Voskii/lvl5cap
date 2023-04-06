@@ -1,10 +1,10 @@
 .deck{
+  background-color: darkslategray;
   display: flex;
   max-width: 100%;
-  border : 1px solid black;
+  border : 2px solid black;
   height: 200px;
   width: 600px;
-
 }
 .decks-container{
   display: flex;
@@ -14,4 +14,13 @@
   justify-content: space-between;
   text-align: center;
   row-gap: 50px;
+}
+
+/* .deckbutt{
+  
+} */
+
+.deck-cardnum-butt-flex{
+  display: flex;
+  flex-direction: column;
 }

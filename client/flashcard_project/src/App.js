@@ -1,18 +1,22 @@
 import React from 'react'
-import {Route, Routes } from 'react-router-dom'
+import {Routes, Route} from 'react-router-dom'
 import "./App.css"
+import Footer from './components/Footer/Footer'
+import Study from './components/Study/Study'
 import Home from './components/Home/Home'
-import AddDeck from './components/AddDeck/AddDeck'
 import Decks from './components/Decks/Decks'
+import Navbar from './components/Navbar/Navbar'
 function App() {
 
   return(
     <div className='App'>
-        <Routes className = "routes">
-      <Route index path = "/" element = {<Home />} />
-      <Route path = "/create" element = {<AddDeck/>} />
-      <Route path = "/study" element = {<Decks />} />
-    </Routes>
+      <Navbar />
+      <Routes className = "routes">
+        <Route index path = "/" element = {<Home />} />
+        <Route path = "/decks" element = {<Decks />} />
+        <Route path = "/study" element = {<Study />} />
+      </Routes>
+      <Footer />
     </div>
   )
 }
