@@ -14,17 +14,6 @@ decksRouter.get("/", async(req, res, next) => {
     })
 })
 
-// get one 
-// decksRouter.get('/:deckId', (req, res, next) => {
-//     const deckId = req.params.deckId
-//     const foundDeck = Deck.find(deck => deckId === deck._id)
-//     console.log(deckId)
-//     if(!foundDeck){
-//         const err = new Error(`The deck ${deckId} was not found.`)
-//         return next(err)
-//     }
-// })
-
 //post one
 decksRouter.post("/", (req, res, next) => {
     console.log(req.body)
