@@ -5,22 +5,27 @@
   background-repeat: no-repeat;
   background-position:top;
   max-width: 100%;
-
+  border-bottom: 10px double rgb(97, 201, 201) ;
 }
 
 h1{
-  font-family: "Segoue UI", sans-serif;
+  font-family: "Arial", sans-serif;
+  font-style: oblique;
   text-align: center;
+  font-size: 50px;
   margin-top: 95px;
 }
 
 .about-us-text{
   font-family: "Segoue UI", sans-serif;
   text-align: center;
-  margin-left: 95px;
-  margin-right: 95px;
+  padding-left: 95px;
+  padding-right: 95px;
+  padding-top: 35px;
+  padding-bottom: 35px;
   margin-bottom: 85px;
   margin-top: 25px;
+  background-color: rgb(160, 215, 217);
 }
 
 .study-habits-image{
@@ -38,6 +43,7 @@ h1{
   flex-direction: row;
   justify-content: space-around;
   border: 1px solid black;
+
 }
 
 .list{
@@ -46,6 +52,7 @@ h1{
   font-family: "Segoue UI", sans-serif;
 }
 .listItem{
+  list-style: "⚡";
   font-family: "Segoue UI", sans-serif;
 
 }
