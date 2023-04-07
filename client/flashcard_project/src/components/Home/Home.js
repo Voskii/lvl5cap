@@ -1,11 +1,9 @@
 
 //Home page
 import React from 'react'
-import Navbar from '../Navbar/Navbar'
 import "./Home.css"
-import Footer from '../Footer/Footer'
 import UserReview from '../Carousel/UserReview'
-
+import Explanation from '../Explanation/Explanation'
 
 
 function Home() {
@@ -14,7 +12,6 @@ function Home() {
     <>
     <header className='head-container'>
     </header>
-    <Navbar />
     <main>
     <h1>About us</h1>
     <p className='about-us-text'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Aliquam eleifend mi in nulla posuere sollicitudin aliquam ultrices. Nec ullamcorper sit amet risus. Elementum tempus egestas sed sed risus pretium. Senectus et netus et malesuada fames ac turpis egestas. Consequat interdum varius sit amet. Integer enim neque volutpat ac tincidunt vitae semper quis lectus. Orci dapibus ultrices in iaculis nunc sed augue lacus viverra. Tempor nec feugiat nisl pretium fusce id velit ut tortor. Ultricies leo integer malesuada nunc vel. Quam adipiscing vitae proin sagittis nisl rhoncus. Enim sed faucibus turpis in eu mi. Elit at imperdiet dui accumsan sit amet nulla facilisi. Risus feugiat in ante metus dictum at. Lacinia quis vel eros donec ac odio tempor orci.
@@ -37,15 +34,15 @@ function Home() {
           </ul>
       
         </div>
-        <div></div>
-        
-    </div>
-    <h4>HOW TO USE STUDY BUDDY</h4>
-    </main>
+        </div>
+        <div className='explanation-container'>
+      <Explanation />
+      </div>
+      </main>
     <div className='test'>
+   
       <UserReview />
     </div>
-    <Footer />
       </>
   )
 }

@@ -1,18 +1,27 @@
+// import React, { useState, useEffect } from "react"
 
-import React from 'react'
-function AddCard(){
 
+
+function AddCard() {
+  // const [userCard, setCardDeck] = useState('') 
   return (
     <div>
-    <h1>Flash Card Form Component</h1>
-        <div className="form-inputs">
-        <input type="file" placeholder="Optional Image" />
-      <input className='cardForm-question' type= 'text' min={10} placeholder = "Question"/>
-      <input className="cardForm-answer" type = 'text' placeholder="Answer"/>
-      
+      <div className='buttons'>
+        <button>Back 2 Decks</button>
+        <button>Edit Card</button>
+      </div>
+      <div className='deck-component'>
+        <button>backarrow</button>
+        <div className='databox'>
+          <div className='new-deck-info'>
+            <h2>Deck Title Name</h2>
+            <input type='text' placeholder='...'></input>
+          </div>
+        </div>
+        <button>forwardarrow</button>
       </div>
     </div>
   )
 }
 
-export default AddCard
+export default AddCard()
