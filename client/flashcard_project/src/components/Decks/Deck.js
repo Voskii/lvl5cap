@@ -3,11 +3,12 @@ import React from 'react';
 
 export default function Deck(props){
     const {data, index, decks, setDecks} = props
-    const delDeck = (deckId) => axios.delete(`/deck/${deckId}`)
-                        .then(res => {
-                            setDecks(prev => prev.filter(deck => deck._id !== deckId))
-                        .catch(err => console.log(err))
-                        })
+    const delDeck = (deckId) => 
+        axios.delete(`/decks/${deckId}`)
+            .then(res => {
+                setDecks(prev => prev.filter(deck => deck._id !== deckId))
+            .catch(err => console.log(err))
+            })
     return (
         <div className='deck'>
             <h1>{data.title}</h1>
