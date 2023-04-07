@@ -14,6 +14,28 @@ cardsRouter.get("/", async (req, res, next) => {
     }
 })
 
+// Get by Deck
+cardsRouter.get("/:deckID", (req, res, next) => {
+    Flashcard.find({ deckId: req.params.deckId }, (err, Flashcard) => {
+        if(err){
+            res.status(500)
+            return next(err)
+        }
+        return res.status(200).send(Flashcard)
+    })
+})
+
+// get one
+cardsRouter.get("/:cardId", (req, res, next) => {
+    Flashcard.findOne({ _id: req.params.cardId }, (err, Flashcard) => {
+        if(err){
+            res.status(500)
+            return next(err)
+        }
+        return res.status(200).send(Flashcard)
+    })
+})
+
 //Post one
 cardsRouter.post("/", (req, res, next) => {
     const newCard = new Flashcard(req.body)
@@ -26,17 +48,6 @@ cardsRouter.post("/", (req, res, next) => {
     })
 })
 
-// Get by Deck
-cardsRouter.get("/:deckID", (req, res, next) => {
-    Card.find ({ deck: req.params.deckID }, (err, Card) => {
-        if(err){
-            res.status(500)
-            return next(err)
-        }
-        return res.status(200).send(Card)
-    })
-})
-
 //delete one
 cardsRouter.delete("/:cardId", (req, res, next) =>{
     Flashcard.findOneAndDelete({ _id: req.params.cardId }, (err, deletedItem) =>{
@@ -44,9 +55,26 @@ cardsRouter.delete("/:cardId", (req, res, next) =>{
             res.status(500)
             return next(err)
         }
-        return res.status(200).send(`Successfully deleted item ${deletedItem.question} from the database`)
+        return res.status(200).send(`Successfully deleted card ${deletedItem.question} from the database`)
     })
 })
+
+//update one card
+cardsRouter.put("/:cardId" , (req, res, next) => {
+    Flashcard.findOneAndUpdate(
+        {_id : req.params.cardId},
+        req.body,
+        {new: true},
+        (err, updatedCard) => {
+            if(err){
+                res.status(500)
+                return next(err)
+            }
+        return res.status(201).send(updatedCard, `Card has been updated.`)
+        }
+    )
+})
+
 
 module.exports = cardsRouter
 

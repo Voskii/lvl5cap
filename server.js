@@ -6,9 +6,9 @@ require('dotenv').config()
 uri = process.env.URI
 
 //Middleware (for every request)
-app.use('/deck', express.json())
+app.use('/decks', express.json())
 app.use('/comments', express.json())
-app.use('/flashcard', express.json()) // looks for a request body and turns it into a 'req.body
+app.use('/flashcards', express.json()) // looks for a request body and turns it into a 'req.body
 app.use(morgan('dev')) // logs requests to the console
 
 //Connect to database
