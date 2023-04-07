@@ -14,6 +14,46 @@ decksRouter.get("/", async(req, res, next) => {
     })
 })
 
+//get one
+decksRouter.get("/:deckId", (req, res, next) => {
+    Deck.findOne({ _id: req.params.deckId }, (err, Deck) => {
+        if(err){
+            res.status(500)
+            return next(err)
+        }
+        return res.status(200).send(Deck)
+    })
+})
+
+//get deck by search terms
+decksRouter.get("/search", (req, res, next) => {
+    const {deck} = req.query
+    const pattern = new RegExp(deck)
+    Deck.find(
+        { title: { $regex: pattern, $options: 'i' } },
+        (err, decks) => {
+            if (err) {
+                res.status(500)
+                return next(err)
+            }
+            return res.status(200).send(decks)
+        }
+    )
+})
+
+//get by query. example of a search funciton: localhost:9000/deck/search?deck=2
+decksRouter.get("/search", (req, res, next) => {
+    const { deck } = req.query
+    const pattern = new RegExp(deck)
+    Deck.find({ title: {$regex: pattern, $options: 'i'} }, (err,decks) => {
+        if(err){
+            res.status(500)
+            return next(err)
+        }
+        return res.status(200).send (decks)
+    })
+})
+
 //post one
 decksRouter.post("/", (req, res, next) => {
     console.log(req.body)
@@ -38,33 +78,20 @@ decksRouter.delete("/:deckId", (req, res, next) =>{
     })
 })
 
-//get deck by search terms
-decksRouter.get("/search", (req, res, next) => {
-    const {deck} = req.query
-    const pattern = new RegExp(deck)
-    Deck.find(
-        { title: { $regex: pattern, $options: 'i' } },
-        (err, decks) => {
-            if (err) {
+//update function
+decksRouter.put("/:deckId", (req, res, next) => {
+    Deck.findOneAndUpdate(
+        {_id : req.params.deckId},
+        req.body,
+        {new: true},
+        (err, updatedDeck) => {
+            if(err){
                 res.status(500)
                 return next(err)
             }
-            return res.status(200).send(decks)
+        return res.status(201).send(updatedDeck, `Deck has been updated.`)
         }
     )
-})
-
-//get by query example of a search funciton: localhost:9000/deck/search?deck=2
-decksRouter.get("/search", (req, res, next) => {
-    const { deck } = req.query
-    const pattern = new RegExp(deck)
-    Deck.find({ title: {$regex: pattern, $options: 'i'} }, (err,decks) => {
-        if(err){
-            res.status(500)
-            return next(err)
-        }
-        return res.status(200).send (decks)
-    })
 })
 
 
