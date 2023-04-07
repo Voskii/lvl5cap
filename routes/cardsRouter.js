@@ -28,12 +28,23 @@ cardsRouter.post("/", (req, res, next) => {
 
 // Get by Deck
 cardsRouter.get("/:deckID", (req, res, next) => {
-    Card.find ({ deck: req.params.deckID }, (err, Card) => {
+    Flashcard.find({ deck: req.params.deckID }, (err, Flashcard) => {
         if(err){
             res.status(500)
             return next(err)
         }
-        return res.status(200).send(Card)
+        return res.status(200).send(Flashcard)
+    })
+})
+
+// get one
+cardsRouter.get("/:cardID", (req, res, next) => {
+    Flashcard.find({ _id: req.params.cardID }, (err, Flashcard) => {
+        if(err){
+            res.status(500)
+            return next(err)
+        }
+        return res.status(200).send(Flashcard)
     })
 })
 
@@ -47,6 +58,22 @@ cardsRouter.delete("/:cardId", (req, res, next) =>{
         return res.status(200).send(`Successfully deleted item ${deletedItem.question} from the database`)
     })
 })
+
+//update one card
+cardsRouter.put("/:cardId" , (req, res, next) => {
+    Flashcard.findOneAndUpdate(
+        {_id : req.params.cardId},
+        {new: true},
+        (err, updatedCard) => {
+            if(err){
+                res.status(500)
+                return next(err)
+            }
+        return res.status(201).send(updatedCard)
+        }
+    )
+})
+
 
 module.exports = cardsRouter
 
