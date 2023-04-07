@@ -38,7 +38,6 @@ cardsRouter.get("/:cardId", (req, res, next) => {
 
 //Post one
 cardsRouter.post("/", (req, res, next) => {
-    console.log(req.body)
     const newCard = new Flashcard(req.body)
     newCard.save((err, savedCard) => {
         if(err){
