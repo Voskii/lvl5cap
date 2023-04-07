@@ -1,21 +1,19 @@
-// import React, { useState, useEffect } from "react"
+import React, { useState, useEffect } from "react"
 
-
-
-function AddCard() {
+function AddCard(props) {
+  
   // const [userCard, setCardDeck] = useState('') 
+  console.log(`AddCard component rendered`)
+  
   return (
     <div>
-      <div className='buttons'>
-        <button>Back 2 Decks</button>
-        <button>Edit Card</button>
-      </div>
       <div className='deck-component'>
         <button>backarrow</button>
         <div className='databox'>
           <div className='new-deck-info'>
-            <h2>Deck Title Name</h2>
+            <h2>Question</h2>
             <input type='text' placeholder='...'></input>
+            <h2>Answer</h2>
           </div>
         </div>
         <button>forwardarrow</button>
