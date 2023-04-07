@@ -56,14 +56,13 @@ decksRouter.get("/search", (req, res, next) => {
 
 //post one
 decksRouter.post("/", (req, res, next) => {
-    console.log(req.body)
     const newDeck = new Deck(req.body)
     newDeck.save((err, savedDeck) => {
         if(err){
             res.status(500)
             return next(err)
         }
-    return res.status(201).send(savedDeck)
+    return res.status(201).send(savedDeck._id)
     })
 })
 
