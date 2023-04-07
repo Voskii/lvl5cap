@@ -7,7 +7,7 @@ const flashcardSchema = new Schema({
         type: String,
         required: true,
     },
-    awnser: {
+    answer: {
         type: String,
         required: true,
     },
