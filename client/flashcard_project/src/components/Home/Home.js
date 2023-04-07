@@ -1,11 +1,9 @@
 
 //Home page
 import React from 'react'
-import Navbar from '../Navbar/Navbar'
 import "./Home.css"
-import Footer from '../Footer/Footer'
 import UserReview from '../Carousel/UserReview'
-
+import Explanation from '../Explanation/Explanation'
 
 
 function Home() {
@@ -36,15 +34,15 @@ function Home() {
           </ul>
       
         </div>
-        <div></div>
-        
-    </div>
-    <h4>HOW TO USE STUDY BUDDY</h4>
-    </main>
+        </div>
+        <div className='explanation-container'>
+      <Explanation />
+      </div>
+      </main>
     <div className='test'>
+   
       <UserReview />
     </div>
-    <Footer />
       </>
   )
 }
