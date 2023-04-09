@@ -52,7 +52,7 @@ return (
           <div className="card-body">
               <h5 className="card-title">{data.name}</h5>
               <p className="card-text">{data.review}</p>
-              <h6 className = "user-ratings">{data.stars}<FaStar /></h6>
+              <h6 className = "user-ratings">{data.stars}<FaStar className="star" /></h6>
           </div>
           </div>
         </Slide>))

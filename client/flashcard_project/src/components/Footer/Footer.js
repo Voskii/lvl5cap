@@ -4,9 +4,8 @@ function Footer() {
   return (
     <footer>
     <div className = "logo-image-container">
+              </div>
   
-      </div>
-    <h1>Study Buddy</h1>
     </footer>
   )
 }
