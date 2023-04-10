@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react"
 
-function AddCard(props) {
+function EditCard(props) {
   
   // const [userCard, setCardDeck] = useState('') 
-  console.log(`AddCard component rendered`)
+  console.log(`EditCard component rendered`)
   
   return (
     <div>
@@ -22,4 +22,4 @@ function AddCard(props) {
   )
 }
 
-export default AddCard()
+export default EditCard()

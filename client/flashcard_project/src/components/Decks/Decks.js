@@ -5,16 +5,19 @@ import axios from "axios"
 import { DeckContext } from "../../Context.js"
 import { set } from "mongoose"
 import AddDeck from "../AddDeck/AddDeck"
-import AddCard from "../AddCard/AddCard"
+import AddCard from "../EditCard/EditCard"
 
 export default function Decks() {
   // console.log(DeckContext)
   // const { getDecks } = useContext(DeckContext)
   const [decks, setDecks] = useState([])
   const [addDeckMode, setAddDeckMode] = useState(false)
-  const [userCard, setUserCard] = useState('')
-  const [addCardMode, setAddCardMode] = useState(false)
   const [userDeck, setUserDeck] = useState({
+    title: '',
+    flashcards: 0
+  })
+  const [addCardMode, setAddCardMode] = useState(false)
+  const [userCard, setUserCard] = useState({
     question: '',
     answer: '',
     deckId: ''
@@ -25,6 +28,10 @@ export default function Decks() {
         .then(res => setDecks(res.data))
         .catch(err => console.log(err.response.data.errMsg))
     }
+
+  const popCards = () => {
+
+  }
 
   useEffect(() => {
     getDecks()
