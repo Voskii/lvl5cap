@@ -3,13 +3,16 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  background-color: cadetblue;
+  background-color: #66bec6;
   opacity: 80%;
-  border-top: 4px solid darkgoldenrod;
-  border-bottom: 4px solid darkgoldenrod;
+  border-top: 4px inset #ccff00;
+  border-bottom: 4px inset #ccff00;
+  font-family: 'Alkatra', cursive;
+
 }
 .button-routes{
   margin-top: 25px;
   margin-bottom: 25px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Alkatra', cursive;
+  font-family: 'Noto Sans Mono', monospace;
 }
