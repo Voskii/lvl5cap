@@ -1,3 +1,6 @@
+
+
+
 .head-container{
   background-image: url("./images/headerImage.jpg");
   height: 500px;
@@ -5,7 +8,8 @@
   background-repeat: no-repeat;
   background-position:top;
   max-width: 100%;
-  border-bottom: 10px double rgb(97, 201, 201) ;
+  border-bottom: 10px double #20517e;
+  outline:10px double #ccff00;
 }
 
 h1{
@@ -23,9 +27,8 @@ h1{
   padding-right: 95px;
   padding-top: 35px;
   padding-bottom: 35px;
-  margin-bottom: 85px;
-  margin-top: 25px;
-  background-color: rgb(160, 215, 217);
+  color: #20517e;
+
 }
 
 .study-habits-image{
@@ -42,18 +45,30 @@ h1{
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  border: 1px solid black;
+  
+  border: 3px outset #969696;
 
+}
+a{
+  color : black;
+}
+a:hover{
+  color: rgb(41,80,109);
 }
 
 .list{
   text-align: center;
-  margin-top: 65px;
-  font-family: "Segoue UI", sans-serif;
+  font-size: 22px;
+  margin-top: 30px;
+  
+  font-family: "Alkatra", cursive;
 }
 .listItem{
+  padding-bottom: 15px;
   list-style: "⚡";
+  font-size: 18px;
   font-family: "Segoue UI", sans-serif;
+  text-decoration: none;
 
 }
 .user-review-carousel{
