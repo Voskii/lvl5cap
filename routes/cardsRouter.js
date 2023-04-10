@@ -15,8 +15,8 @@ cardsRouter.get("/", async (req, res, next) => {
 })
 
 // Get by Deck
-cardsRouter.get("/:deckID", (req, res, next) => {
-    Flashcard.find({ deckId: req.params.deckId }, (err, Flashcard) => {
+cardsRouter.get("/:deckId", (req, res, next) => {
+    Flashcard.find({ deckId : req.params.deckId }, (err, Flashcard) => {
         if(err){
             res.status(500)
             return next(err)
@@ -82,6 +82,6 @@ module.exports = cardsRouter
 //Postman flashcard input form
 // {
 //     "question": "fake Data",
-//     "awnser": "more  useless data",
+//     "answer": "more  useless data",
 //     "deckId": "642dd479b9f402dfc42e2404"
 //     }

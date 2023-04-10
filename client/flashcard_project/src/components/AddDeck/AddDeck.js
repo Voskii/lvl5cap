@@ -42,6 +42,7 @@ function AddDeck(props) {
       ...prev,
       [name]: value
     }))
+
   }
 
   const createDeck = (newDeck) => {
