@@ -26,15 +26,15 @@ cardsRouter.get("/:deckId", (req, res, next) => {
 })
 
 // get one
-cardsRouter.get("/:cardId", (req, res, next) => {
-    Flashcard.findOne({ _id: req.params.cardId }, (err, Flashcard) => {
-        if(err){
-            res.status(500)
-            return next(err)
-        }
-        return res.status(200).send(Flashcard)
-    })
-})
+// cardsRouter.get("/:cardId", (req, res, next) => {
+//     Flashcard.find({ _id: req.params.cardId }, (err, Flashcard) => {
+//         if(err){
+//             res.status(500)
+//             return next(err)
+//         }
+//         return res.status(200).send(Flashcard)
+//     })
+// })
 
 //Post one
 cardsRouter.post("/", (req, res, next) => {

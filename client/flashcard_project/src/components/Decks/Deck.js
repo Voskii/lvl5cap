@@ -21,22 +21,20 @@ export default function Deck(props){
             .catch(err => console.log(err))
             })
     
-    const popCards = () => {
-        // axios.get(`/flashcards/search/${data._id}`)
-        //     .then(res => {
-        //         console.log(`popcards func onclick deck:`, res.data)
-        //         // setCards(res.data)
-
-        //     })
+    const popCards = (deckId) => {
+        axios.get(`/flashcards/${deckId}`)
+            .then(res => {
+                console.log(`popcards func onclick deck:`, res.data)
+                setCards(res.data)
+            })
         setEditCard(!editCard)
-        console.log(cards)
     }
 
     return (
         <div>
             {editCard? <button onClick={()=>{setEditCard(!editCard)}}>Back 2 Deck</button> : ''}
             {editCard?
-            info.map((card, index) => <Card key={index} data={card} index={index} />)
+            cards.map((card, index) => <Card key={index} data={card} index={index} />)
             :
             ''
             }
