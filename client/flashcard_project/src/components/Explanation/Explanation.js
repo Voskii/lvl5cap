@@ -6,6 +6,7 @@ import "./Explanation.css"
 function Explanation() {
   return (
     <div className='explanation-container'>
+    <hr className='spacer'/>
     <div className='section-1'>
         <div className='container-image-1'>
 
@@ -14,19 +15,21 @@ function Explanation() {
         <br /> and categorize them how you see fit!</h4>
          
         </div>
-        <hr />
+        <hr className='spacer'/>
         <div className='section-2'>
         <div className='container-image-2'>
   
         </div>
         <h4 className='section-2-text'>Contains Easily traversible pages,
         <br />
-        to make your study session more about the goal   <br/> and less about the journey.
+        to make your study session more
+        <br />
+        about the goal and less about the journey.
        
         </h4>
          
         </div>
-        <hr />
+        <hr className='spacer'/>
         <div className='section-3'>
         <div className='container-image-3'></div>
         <h4 className='section-3-text'>Edit, and Delete Cards in your Study Deck.
@@ -35,7 +38,7 @@ function Explanation() {
         </h4>
          
         </div>
-        <hr />
+        <hr className='spacer'/>
         <div className='section-4'>
         <div className='container-image-4'> </div>
         <h4 className='section-4-text'>Time yourself in the Quiz Section, using our Count Up and Count Down timers 
@@ -44,7 +47,7 @@ function Explanation() {
         </h4>
          
         </div>
-        <hr />
+        <hr className='spacer'/>
           <div>
         
         </div>
