@@ -1,3 +1,7 @@
+*{
+  color: aqua;
+}
+
 .inputs-container{
   display: flex;
   flex-direction: column;
@@ -7,6 +11,7 @@
 
 .databox{
   display: flex;
+  /* flex-direction: column; */
   align-items: center;
   border: solid black 3px;
   background-color: darkslategray;
@@ -28,4 +33,8 @@
   transform: scale(1.3);
   display: flex;
   flex-direction: column;
+}
+
+.finish-butt{
+  transform: scale(.7);
 }
