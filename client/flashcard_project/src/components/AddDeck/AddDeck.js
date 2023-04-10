@@ -14,7 +14,7 @@ function AddDeck(props) {
   }
 
   const handleDeckChange = (e) => {
-   console.log(e.target.value)
+  console.log(e.target.value)
     setUserDeck({
       title: e.target.value,
       flashcards: 0
@@ -23,10 +23,10 @@ function AddDeck(props) {
 
   const handleCardChange = (e) => {
     const {name, value} = e.target
-     setUserCard({
-       [name]: value
-     })
-   }
+    setUserCard({
+      [name]: value
+    })
+  }
 
   const createDeck = (newDeck) => {
     axios.post('/decks', newDeck)
