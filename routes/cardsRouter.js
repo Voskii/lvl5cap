@@ -15,8 +15,8 @@ cardsRouter.get("/", async (req, res, next) => {
 })
 
 // Get by Deck
-cardsRouter.get("/:deckID", (req, res, next) => {
-    Flashcard.find({ deckId: req.params.deckId }, (err, Flashcard) => {
+cardsRouter.get("/:deckId", (req, res, next) => {
+    Flashcard.find({ deckId : req.params.deckId }, (err, Flashcard) => {
         if(err){
             res.status(500)
             return next(err)
@@ -26,15 +26,15 @@ cardsRouter.get("/:deckID", (req, res, next) => {
 })
 
 // get one
-cardsRouter.get("/:cardId", (req, res, next) => {
-    Flashcard.findOne({ _id: req.params.cardId }, (err, Flashcard) => {
-        if(err){
-            res.status(500)
-            return next(err)
-        }
-        return res.status(200).send(Flashcard)
-    })
-})
+// cardsRouter.get("/:cardId", (req, res, next) => {
+//     Flashcard.findOne({ _id: req.params.cardId }, (err, Flashcard) => {
+//         if(err){
+//             res.status(500)
+//             return next(err)
+//         }
+//         return res.status(200).send(Flashcard)
+//     })
+// })
 
 //Post one
 cardsRouter.post("/", (req, res, next) => {
@@ -55,7 +55,7 @@ cardsRouter.delete("/:cardId", (req, res, next) =>{
             res.status(500)
             return next(err)
         }
-        return res.status(200).send(`Successfully deleted card ${deletedItem.question} from the database`)
+        return res.status(200).send(`Successfully deleted card ${deletedItem._id} from the database`)
     })
 })
 
@@ -70,7 +70,8 @@ cardsRouter.put("/:cardId" , (req, res, next) => {
                 res.status(500)
                 return next(err)
             }
-        return res.status(201).send(updatedCard, `Card has been updated.`)
+            //.send(updatedCard) is causing 500 error due to having numbers in a property lol
+        return res.status(201).send(`Card has been updated.`)
         }
     )
 })
@@ -82,6 +83,6 @@ module.exports = cardsRouter
 //Postman flashcard input form
 // {
 //     "question": "fake Data",
-//     "awnser": "more  useless data",
+//     "answer": "more  useless data",
 //     "deckId": "642dd479b9f402dfc42e2404"
 //     }
