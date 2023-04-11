@@ -84,7 +84,7 @@ function Timer() {
       </div>
       <div className='reset'>
         {timerOn === false ||
-          (timerTime < 1000 && timerStart !== timerTime && timerStart > 0) ? (
+          (timerTime !== 0 && timerStart !== timerTime && timerStart !== 0) ? (
           <button onClick={resetTimer}>Reset</button>
         ) : null}
       </div>
