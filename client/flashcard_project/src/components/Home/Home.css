@@ -12,12 +12,13 @@
   outline:10px double #ccff00;
 }
 
-h1{
+.about-us-header{
   font-family: "Arial", sans-serif;
   font-style: oblique;
   text-align: center;
   font-size: 50px;
   margin-top: 95px;
+  color: #20517e;
 }
 
 .about-us-text{
@@ -60,7 +61,7 @@ a:hover{
   text-align: center;
   font-size: 22px;
   margin-top: 30px;
-  
+  color: rgb(41,80,109);
   font-family: "Alkatra", cursive;
 }
 .listItem{

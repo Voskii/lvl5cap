@@ -50,9 +50,12 @@ function StopWatch() {
         {!timerOn && timerTime > 0 && <button onClick={startTimer}>Resume</button>}
       </div>
       <div>
-      {timerOn === false && timerTime > 0 && (
+      {timerOn === false ||
+        (timerTime !== 0 && timerStart !== timerTime && timerStart !== 0) ? (
         <button onClick={resetTimer}>Reset</button>
-      )}</div>
+        ) : null
+      }
+    </div>
     </div>
   );
 }

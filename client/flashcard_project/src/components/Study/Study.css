@@ -15,7 +15,7 @@
   width: 200px;
 }
 .timer-component{
-  height: 100px;
+  height: 400px;
   width: 200px;
   border: 1px solid black;
 }
@@ -53,6 +53,7 @@
 .stopwatch-header {
   font-size: 25px;
   font-weight: bold;
+  color: black;
 }
 
 button {
@@ -73,22 +74,25 @@ button:hover {
 .stopwatch button {
   padding: 12px 32px;
   font-size: 20px;
+  color:black;
 }
 .stopwatch-display {
   padding: 40px 0;
   font-size: 35px;
+  color: black;
 }
 
 .timer-display {
   margin-top: 5px;
   margin-bottom: 20px;
+  color: black;
 }
 .timer-display button {
   margin: 0 15px;
   border: solid 1px transparent;
   border-radius: 2px;
   padding: 4px 16px;
-  color: #ffffff;
+  color: black;
 
   font-size: 16px;
 }
@@ -100,21 +104,36 @@ button:hover {
   font-size: 18px;
   margin-top: 5px;
   margin-bottom: 10px;
+  color: black;
 }
 .timer-time {
   font-size: 36px;
   margin: 5px 0;
+  color: black;
 } 
 
 .start, .reset, .resume , .stop{
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
+  height: 35px;
 }
 .question-list{
   border: 1px solid black;
-  height: 500px;
-  width: 500px;
-  margin: 0 auto;
-  position: relative;
+  height: 450px;
+  width: 450px;
+  max-width: 100%;
+}
+.button-and-list-container{
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+}
+.study{
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+select{
+  color: black;
 }
