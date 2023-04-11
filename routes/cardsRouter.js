@@ -59,7 +59,8 @@ cardsRouter.put("/:cardId" , (req, res, next) => {
                 res.status(500)
                 return next(err)
             }
-        return res.status(201).send(updatedCard, `Card has been updated.`)
+            //.send(updatedCard) is causing 500 error due to having numbers in a property lol
+        return res.status(201).send(`Card has been updated.`)
         }
     )
 })
