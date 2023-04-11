@@ -12,14 +12,9 @@ const flashcardSchema = new Schema({
         required: true,
     },
     deckId: {
-        type: Schema.Types.ObjectId,
-        ref: "Deck",
+        type: String,
         required: true
     },
-    deckTitle: {
-        type: Schema.Types.String,
-        ref: "Deck"
-    }
 })
 
 

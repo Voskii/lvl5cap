@@ -25,17 +25,6 @@ cardsRouter.get("/:deckId", (req, res, next) => {
     })
 })
 
-// get one
-// cardsRouter.get("/:cardId", (req, res, next) => {
-//     Flashcard.find({ _id: req.params.cardId }, (err, Flashcard) => {
-//         if(err){
-//             res.status(500)
-//             return next(err)
-//         }
-//         return res.status(200).send(Flashcard)
-//     })
-// })
-
 //Post one
 cardsRouter.post("/", (req, res, next) => {
     const newCard = new Flashcard(req.body)
@@ -48,14 +37,14 @@ cardsRouter.post("/", (req, res, next) => {
     })
 })
 
-//delete one
-cardsRouter.delete("/:cardId", (req, res, next) =>{
-    Flashcard.findOneAndDelete({ _id: req.params.cardId }, (err, deletedItem) =>{
+// delete function
+cardsRouter.delete( "/:cardId", async (req, res, next) =>{
+    Flashcard.findByIdAndDelete( {_id: req.params.cardId}, (err, deletedItem) => {
         if(err){
             res.status(500)
             return next(err)
         }
-        return res.status(200).send(`Successfully deleted card ${deletedItem.question} from the database`)
+        return res.status(200).send(`Successfully deleted item: ${deletedItem} from the database.`)
     })
 })
 
@@ -83,5 +72,5 @@ module.exports = cardsRouter
 // {
 //     "question": "fake Data",
 //     "answer": "more  useless data",
-//     "deckId": "642dd479b9f402dfc42e2404"
+//     "deckId": ""
 //     }

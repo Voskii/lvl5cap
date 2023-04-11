@@ -7,20 +7,16 @@ export default function Deck(props){
     const {data, index, decks, setDecks} = props
     const [cards, setCards] = useState([])
     const [editCard, setEditCard] = useState(false)
-    const info = [
-    { question: 'obi-wan', answer: 'kenobi' , _id: 9001},
-    { question: 'darth', answer: 'vader' , _id: 9002},
-    { question: 'count', answer: 'dooku' , _id: 9003},
-    { question: 'asajj', answer: 'ventress' , _id: 9004}
-]
-
+    
+// Delete deck function
     const delDeck = (deckId) => 
         axios.delete(`/decks/${deckId}`)
             .then(res => {
                 setDecks(prev => prev.filter(deck => deck._id !== deckId))
             .catch(err => console.log(err))
             })
-    
+
+//display cards per deck function
     const popCards = (deckId) => {
         axios.get(`/flashcards/${deckId}`)
             .then(res => {
@@ -29,7 +25,8 @@ export default function Deck(props){
             })
         setEditCard(!editCard)
     }
-
+    
+//deck
     return (
         <div>
             {editCard? <button onClick={()=>{setEditCard(!editCard)}}>Back 2 Deck</button> : ''}
