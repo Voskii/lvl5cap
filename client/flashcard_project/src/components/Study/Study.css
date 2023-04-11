@@ -113,8 +113,16 @@ button:hover {
 }
 .question-list{
   border: 1px solid black;
-  height: 500px;
-  width: 500px;
-  margin: 0 auto;
-  position: relative;
+  height: 450px;
+  width: 450px;
+  max-width: 100%;
+}
+.button-and-list-container{
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+}
+.study{
+  display: flex;
+  flex-direction: row;
 }
