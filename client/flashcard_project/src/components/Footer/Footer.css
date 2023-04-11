@@ -34,14 +34,14 @@ h1{
   display: flex;
   flex-direction: column;
 }
-button{
+.footer-button{
   border: none;
   background-color: transparent;
   color: black;
   font-size: 15px;
   
 }
-button:hover{
+.footer-button:hover{
   color: 	#ccff00;
 }
 .bar{

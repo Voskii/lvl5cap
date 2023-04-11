@@ -10,18 +10,18 @@ function Footer() {
   <div className='footer-links-left'>
     <div className="bar"></div>  
   <hr />
-    <button disabled  href= "#">Terms of Use</button>
-    <button disabled  href= "#">Contact</button>
-    <button disabled  href= "#">Privacy Policy</button>
+    <button className="footer-button" disabled  href= "#">Terms of Use</button>
+    <button className="footer-button" disabled  href= "#">Contact</button>
+    <button className="footer-button" disabled  href= "#">Privacy Policy</button>
     
   
     </div>
     <div className="footer-links-right">
     <div className="bar"></div>
     <hr />
-    <button disabled  href= "#">Careers</button>
-    <button disabled href = "#">Support</button>
-    <button disabled href = "#">Community Guidelines</button>
+    <button className="footer-button" disabled  href= "#">Careers</button>
+    <button className="footer-button" disabled href = "#">Support</button>
+    <button className="footer-button" disabled href = "#">Community Guidelines</button>
     </div>
     </div>
     </footer>
