@@ -39,7 +39,7 @@ export default function Decks() {
 
   return (
     <div className="page">
-      <button onClick={()=>{setAddDeckMode(!addDeckMode)}}>{addDeckMode? 'Back 2 Decks' : 'Add New Deck'}</button>
+      <button onClick={()=>{setAddDeckMode(!addDeckMode)}}>{addDeckMode? 'Back 2 Decks' : 'Add Deck'}</button>
       {addDeckMode  ?
           <AddDeck addDeckMode={addDeckMode} 
             setAddDeckMode={setAddDeckMode} 
@@ -51,7 +51,7 @@ export default function Decks() {
             setUserCard={setUserCard}
           />
       :
-        <div className='card-grid'>
+        <div className='deck-grid'>
           {decks.map((deck, index) => <Deck key={index} data={deck} index={index} decks={decks} setDecks={setDecks}/>)}
         </div>
       }

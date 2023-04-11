@@ -37,18 +37,17 @@ export default function Deck(props){
 
     return (
         <div>
-            {showCard? <button onClick={()=>{setshowCard(!showCard)}}>Back 2 Decks</button> : ''}
+            {showCard? <button onClick={()=>{setshowCard(!showCard)}}>Close Deck</button> : ''}
             {showCard?
             cards.map((card, index) => <Card key={index} data={card} index={index} cards={cards} setCards={setCards}/>)
             :
             ''
             }
-        
         <div className='deck' onClick={() => popCards(data._id)}>
-            <h1>{data.title}</h1>
+            <h2>{data.title}</h2>
                 <div>
-                    <h1>{data.flashcards}</h1>
-                    <button className='deckbutt' onClick={() => delDeck(data._id)}>Delete this Deck</button>
+                    <h2 className='card-length'>{cards.length === 0? '': `Cards:${cards.length}`}</h2>
+                    <button className='deckbutt' onClick={() => delDeck(data._id)}>Delete Deck</button>
                 </div>
         </div>
         </div>
