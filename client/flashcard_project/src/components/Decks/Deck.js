@@ -4,37 +4,42 @@ import Card from '../Card/Card.js'
 
 
 export default function Deck(props){
+    
     const {data, index, decks, setDecks} = props
+    console.log(data)
     const [cards, setCards] = useState([])
-    const [editCard, setEditCard] = useState(false)
-    const info = [
-    { question: 'obi-wan', answer: 'kenobi' , _id: 9001},
-    { question: 'darth', answer: 'vader' , _id: 9002},
-    { question: 'count', answer: 'dooku' , _id: 9003},
-    { question: 'asajj', answer: 'ventress' , _id: 9004}
-]
+    const [showCard, setshowCard] = useState(false)
+//     const info = [
+//     { question: 'Would you like some pickles', answer: 'Absofreakinlutely' , _id: 9001},
+//     { question: 'darth', answer: 'vader' , _id: 9002},
+//     { question: 'count', answer: 'dooku' , _id: 9003},
+//     { question: 'asajj', answer: 'ventress' , _id: 9004}
+// ]
 
-    const delDeck = (deckId) => 
+    const delDeck = (deckId) => {
         axios.delete(`/decks/${deckId}`)
             .then(res => {
                 setDecks(prev => prev.filter(deck => deck._id !== deckId))
-            .catch(err => console.log(err))
             })
-    
+            .catch(err => console.log(err))
+    }
+
     const popCards = (deckId) => {
         axios.get(`/flashcards/${deckId}`)
             .then(res => {
                 console.log(`popcards func onclick deck:`, res.data)
                 setCards(res.data)
             })
-        setEditCard(!editCard)
+            .catch(err => console.log(err))
+        console.log(cards)
+        setshowCard(!showCard)
     }
 
     return (
         <div>
-            {editCard? <button onClick={()=>{setEditCard(!editCard)}}>Back 2 Deck</button> : ''}
-            {editCard?
-            cards.map((card, index) => <Card key={index} data={card} index={index} />)
+            {showCard? <button onClick={()=>{setshowCard(!showCard)}}>Back 2 Decks</button> : ''}
+            {showCard?
+            cards.map((card, index) => <Card key={index} data={card} index={index} cards={cards} setCards={setCards}/>)
             :
             ''
             }

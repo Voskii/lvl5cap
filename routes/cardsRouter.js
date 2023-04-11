@@ -27,7 +27,7 @@ cardsRouter.get("/:deckId", (req, res, next) => {
 
 // get one
 // cardsRouter.get("/:cardId", (req, res, next) => {
-//     Flashcard.find({ _id: req.params.cardId }, (err, Flashcard) => {
+//     Flashcard.findOne({ _id: req.params.cardId }, (err, Flashcard) => {
 //         if(err){
 //             res.status(500)
 //             return next(err)
@@ -55,7 +55,7 @@ cardsRouter.delete("/:cardId", (req, res, next) =>{
             res.status(500)
             return next(err)
         }
-        return res.status(200).send(`Successfully deleted card ${deletedItem.question} from the database`)
+        return res.status(200).send(`Successfully deleted card ${deletedItem._id} from the database`)
     })
 })
 
@@ -70,7 +70,8 @@ cardsRouter.put("/:cardId" , (req, res, next) => {
                 res.status(500)
                 return next(err)
             }
-        return res.status(201).send(updatedCard, `Card has been updated.`)
+            //.send(updatedCard) is causing 500 error due to having numbers in a property lol
+        return res.status(201).send(`Card has been updated.`)
         }
     )
 })
