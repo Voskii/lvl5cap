@@ -39,7 +39,7 @@ function Card(props) {
     console.log(`ID of card DELETED:`, cardId)
       axios.delete(`/flashcards/${cardId}`)
         .then(res => {
-            setCards(prev => prev.filter(card => card._id !== cardId))
+            setCards(prev => prev.filter(card => card._id !== data._id))
             })
         .catch(err => console.log(err))
         
@@ -74,8 +74,10 @@ function Card(props) {
         </div>
       :
         <div>
+          <div className='card-buttons tform'>
           <button onClick={() => setEditCard(!EditCard)}>Edit</button>
           <button onClick={() => delCard(userState.cardId)}>Delete</button>
+          </div>
           <h2>Q:{userState.question}</h2>
           <h2>A:{userState.answer}</h2>
         </div>

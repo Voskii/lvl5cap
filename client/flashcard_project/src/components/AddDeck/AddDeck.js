@@ -47,7 +47,8 @@ function AddDeck(props) {
 
   const createDeck = (newDeck) => {
     console.log(newDeck)
-    axios.post('/decks', newDeck)
+    if(newDeck.title){
+      axios.post('/decks', newDeck)
         .then(res => {
           console.log(`looking for result to be an ID:`, res.data)
           setNewDeckId(res.data)
@@ -64,10 +65,13 @@ function AddDeck(props) {
     
     setAddCardMode(!addCardMode)
     console.log(`should have deck ID:`, userCard)
+    }
+    
   }
 
   const createCard = (card) => {
-    setCards(prev => ([
+    if(card.question && card.answer){
+      setCards(prev => ([
       ...prev,
       {
         question: card.question,
@@ -75,7 +79,6 @@ function AddDeck(props) {
         deckId: newDeckId
       }
     ]))
-
     axios.post('/flashcards', card)
         .then(res => {
           console.log(`inside create card result:`, res)
@@ -90,6 +93,7 @@ function AddDeck(props) {
         deckId: newDeckId
       })  
     })
+    }
   }
 
   console.log(`cards state before render:`, cards)
@@ -97,19 +101,19 @@ function AddDeck(props) {
   console.log(newDeckId)
   return (
     <div>
-      <div>
+      <div className="page2-body">
         <div className='buttons'>
         {/* {addCardMode?<button onClick={()=>{createDeck(userDeck)}}>Prev</button>:''} */}
         {addDeckMode?<button onClick={()=>{createDeck(userDeck)}}>Next</button>:''}
         {addCardMode?<button onClick={()=>{createCard(userCard)}}>Create Card</button>:''}
       </div>
       <div className='deck-component'>
-        {addCardMode?
+        {/* {addCardMode?
         <button>backarrow</button>
         :
         ''
-        }
-        <div className='databox'>
+        } */}
+        <div className={addCardMode? 'databox2': 'databox'}>
           {addCardMode?
           <div className='new-deck-info'>
           <div>
@@ -147,11 +151,11 @@ function AddDeck(props) {
           </div>
           }
         </div>
-        {addCardMode?
+        {/* {addCardMode?
         <button>forwardarrow</button>
         :
         ''
-        }
+        } */}
       </div>
       </div>
     </div>
@@ -159,10 +163,3 @@ function AddDeck(props) {
 }
 
 export default AddDeck
-
-
-{/* <div className='inputs-container'>  
-        <input className = 'inputs' type = "text" placeholder='Category' />
-        <input className = 'inputs' type = "text" placeholder='Question' />
-        <input className = 'inputs' type = "text" placeholder='Answer' />
-        </div> */}

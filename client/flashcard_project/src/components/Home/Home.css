@@ -34,21 +34,21 @@
 
 .study-habits-image{
   background-image: url("./images/booksImage.jpg");
-  border-right: 1px solid black;
+  /* border-right: 1px solid black; */
   height: 100px;
   width: 300px;
   background-repeat: no-repeat;
   background-size: contain;
   padding-bottom: 300px;
   margin-left: 15px;
+  background-color: #66bec6;
 }
 .links-outside-image{
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  
-  border: 3px outset #969696;
-
+  background-color: #66bec6;
+  /* border: 3px outset #969696; */
 }
 a{
   color : black;
@@ -74,4 +74,8 @@ a:hover{
 }
 .user-review-carousel{
   height: 300px;
+}
+
+body{
+  background-color: #cce5ff;
 }
