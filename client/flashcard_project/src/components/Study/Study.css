@@ -1,0 +1,120 @@
+.counter-container{
+  padding-top: 35px;
+  padding-bottom: 35px;
+  display: flex;
+  flex-direction: column;
+  position: static;
+  border: 1px solid black;
+  width:200px; 
+  margin: auto 0;
+}
+.stopwatch-component{
+  border: 1px solid black ;
+  margin-bottom: 25px;
+  height: 100px;
+  width: 200px;
+}
+.timer-component{
+  height: 100px;
+  width: 200px;
+  border: 1px solid black;
+}
+.timers {
+  display: flex;
+  justify-content: center;
+}
+@media (max-width: 900px) {
+  .timers-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+@media (max-width: 900px) {
+  .stopwatch {
+    margin-bottom: 40px;
+  }
+}
+.timer,
+.stopwatch {
+  margin-left: 30px;
+  margin-right: 30px;
+  border: 2px solid grey;
+  border-radius: 4px;
+  padding: 20px;
+  width: 282px;
+  background-color: white;
+  box-shadow: 0 3px 6px rgb(12, 12, 12);
+}
+.timer {
+  padding-top: 20px;
+}
+
+.timer-header,
+.stopwatch-header {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+button {
+  background-color: white;
+  border: solid 1px black;
+  border-radius: 4px;
+  padding: 10px 20px;
+  color: black;
+  font-size: 14px;
+  margin: 0 5px;
+  cursor: pointer;
+  font-weight: 900;
+}
+button:hover {
+  background-color: black;
+  color: white;
+}
+.stopwatch button {
+  padding: 12px 32px;
+  font-size: 20px;
+}
+.stopwatch-display {
+  padding: 40px 0;
+  font-size: 35px;
+}
+
+.timer-display {
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
+.timer-display button {
+  margin: 0 15px;
+  border: solid 1px transparent;
+  border-radius: 2px;
+  padding: 4px 16px;
+  color: #ffffff;
+
+  font-size: 16px;
+}
+.timer-display button:hover {
+  background-color: black;
+  color: white;
+}
+.timer-label {
+  font-size: 18px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+.timer-time {
+  font-size: 36px;
+  margin: 5px 0;
+} 
+
+.start, .reset, .resume , .stop{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+.question-list{
+  border: 1px solid black;
+  height: 500px;
+  width: 500px;
+  margin: 0 auto;
+  position: relative;
+}
