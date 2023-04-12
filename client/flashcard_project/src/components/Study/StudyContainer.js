@@ -75,7 +75,7 @@ import React, {useState, useEffect} from 'react'
 import axios from 'axios'
  //import Decks from "../Decks/Decks"
 // import Deck from "../Decks/Deck"
-// import Study from "../Study/Study"
+import Study from "../Study/Study"
 import Timer from "../Study/Timer"
 import StopWatch from "../Study/StopWatch"
 import Quiz from "./Quiz"
@@ -123,12 +123,13 @@ function StudyContainer() {
 <div className="question-list">
 <div>
     {showQuiz ? 
-      cards.map((card, index) => <Quiz key = {index} showQuiz = {showQuiz} showStudy = {showStudy} data = {card} index = {index} cards = {cards} />
-    
-       ) : ( 
-
-        ""
-  )}
+      cards.map((card, index) => <Quiz key = {index} showQuiz = {showQuiz} data = {card} index = {index} cards = {cards} />) 
+    :  
+    !showQuiz && showStudy?
+      cards.map((card, index) => <Study key = {index} showStudy = {showStudy} data = {card} index = {index} cards = {cards} />) 
+    :
+      ''
+  }
 </div>
 
 
