@@ -3,7 +3,7 @@ import axios from 'axios'
 import './Card.css'
 
 function Card(props) {
-  const {data, index, cards, setCards, setShowCard, showCard} = props
+  const {data, index, cards, setCards, setShowCard, showCard, showAnswer, showQuiz, showStudy} = props
   const [EditCard, setEditCard] = useState(false)
   const [userState, setUserState] = useState({
     question: data.question,
@@ -74,7 +74,12 @@ function Card(props) {
           <button onClick={() => delCard(userState.cardId)}>Delete</button>
           </div>
           <h2>Q:{userState.question}</h2>
+          {!showAnswer || showQuiz?
+          ''
+          :
           <h2>A:{userState.answer}</h2>
+          }
+          
         </div>
       }
       

@@ -2,7 +2,7 @@ import React from 'react';
 import Card from "../Card/Card";
 
 function Study(props) {
-  const { cards } = props;
+  const { cards, data } = props;
 
   return (
     <div>
@@ -10,7 +10,7 @@ function Study(props) {
       <ul>
         {cards.map((card) => (
           <li key={card.id}>
-            <Card card={card} showAnswer={true} />
+            <Card card={card} showAnswer={true} data={data}/>
           </li>
         ))}
       </ul>
