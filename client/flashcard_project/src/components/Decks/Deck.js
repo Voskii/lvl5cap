@@ -1,54 +1,72 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Card from '../Card/Card.js'
 
 
 export default function Deck(props){
-    
+
     const {data, index, decks, setDecks} = props
     console.log(data)
     const [cards, setCards] = useState([])
-    const [showCard, setshowCard] = useState(false)
-//     const info = [
-//     { question: 'Would you like some pickles', answer: 'Absofreakinlutely' , _id: 9001},
-//     { question: 'darth', answer: 'vader' , _id: 9002},
-//     { question: 'count', answer: 'dooku' , _id: 9003},
-//     { question: 'asajj', answer: 'ventress' , _id: 9004}
-// ]
+    const [showCard, setShowCard] = useState(false)
+    const [clicked, setClicked] = useState(false)
+    const [noCards, setNoCards] = useState(false)
+
+    const anyCards = (cards) => {
+        console.log(`inside any cards compontent:`, cards)
+        if(cards === []){
+            setNoCards(false)
+        }
+    }
 
     const delDeck = (deckId) => {
-        axios.delete(`/decks/${deckId}`)
+        if(cards.length === 0){
+            console.log('deleted:', deckId)
+            axios.delete(`/decks/${deckId}`)
             .then(res => {
                 setDecks(prev => prev.filter(deck => deck._id !== deckId))
             })
             .catch(err => console.log(err))
+        }
+        console.log(`delete deck is doing nothing`)
     }
 
     const popCards = (deckId) => {
+        setClicked(true)
+        
         axios.get(`/flashcards/${deckId}`)
             .then(res => {
                 console.log(`popcards func onclick deck:`, res.data)
                 setCards(res.data)
+                anyCards(res.data)
             })
             .catch(err => console.log(err))
+           
         console.log(cards)
-        setshowCard(!showCard)
+        setShowCard(!showCard)
     }
 
+//deck
     return (
         <div>
-            {showCard? <button onClick={()=>{setshowCard(!showCard)}}>Back 2 Decks</button> : ''}
+            {showCard? <button onClick={()=>{setShowCard(!showCard)}}>Close Deck</button> : ''}
             {showCard?
-            cards.map((card, index) => <Card key={index} data={card} index={index} cards={cards} setCards={setCards}/>)
+            cards.map((card, index) => <Card key={index} data={card} index={index} cards={cards} setCards={setCards} showCard={showCard} setShowCard={setShowCard}/>)
             :
             ''
             }
-        
         <div className='deck' onClick={() => popCards(data._id)}>
-            <h1>{data.title}</h1>
+            <h2>{data.title}</h2>
                 <div>
-                    <h1>{data.flashcards}</h1>
-                    <button className='deckbutt' onClick={() => delDeck(data._id)}>Delete this Deck</button>
+                    <h2 className='card-length'>{cards.length === 0? '': `Cards:${cards.length}`}</h2>
+                    {cards.length && clicked=== 0?
+                        <div>
+                            <button className='deckbutt' onClick={() => delDeck(data._id)}>Delete Deck</button>
+                        </div>
+                    :
+                    ''
+                    }
+                    
                 </div>
         </div>
         </div>

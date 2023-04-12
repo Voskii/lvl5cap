@@ -68,7 +68,7 @@ decksRouter.post("/", (req, res, next) => {
 
 //delete one
 decksRouter.delete("/:deckId", (req, res, next) =>{
-    Deck.findOneAndDelete({ _id: req.params.deckId }, (err, deletedItem) =>{
+    Deck.deleteMany({ _id: req.params.deckId }, (err, deletedItem) =>{
         if(err){
             res.status(500)
             return next(err)

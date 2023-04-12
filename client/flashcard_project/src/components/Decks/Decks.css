@@ -1,11 +1,14 @@
 .deck{
-  background-color: darkslategray;
+  align-items: center;
+  background-color: #ab70e6;
+  border-radius: 2%;
   display: flex;
   max-width: 100%;
   border : 2px solid black;
   height: 200px;
   width: 600px;
   cursor: pointer;
+  margin-bottom: 50px;
 }
 .decks-container{
   display: flex;
@@ -24,4 +27,19 @@
 .deck-cardnum-butt-flex{
   display: flex;
   flex-direction: column;
+}
+
+.page{
+  background-color: #B2A2CF;
+  font-family: 'Alkatra', cursive;
+  padding-bottom: 80px;
+}
+
+.deck-grid{
+  padding-bottom: 20px;
+  padding-top: 30px;
+}
+
+.card-length{
+  align-items: center;
 }

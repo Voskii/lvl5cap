@@ -3,9 +3,8 @@ import './Decks.css'
 import Deck from "./Deck"
 import axios from "axios"
 import { DeckContext } from "../../Context.js"
-import { set } from "mongoose"
 import AddDeck from "../AddDeck/AddDeck"
-import AddCard from "../EditCard/EditCard"
+
 
 export default function Decks() {
   // console.log(DeckContext)
@@ -29,17 +28,13 @@ export default function Decks() {
         .catch(err => console.log(err.response.data.errMsg))
     }
 
-  const popCards = () => {
-
-  }
-
   useEffect(() => {
     getDecks()
   }, [])
 
   return (
     <div className="page">
-      <button onClick={()=>{setAddDeckMode(!addDeckMode)}}>{addDeckMode? 'Back 2 Decks' : 'Add New Deck'}</button>
+      <button onClick={()=>{setAddDeckMode(!addDeckMode)}}>{addDeckMode? 'Back 2 Decks' : 'Add Deck'}</button>
       {addDeckMode  ?
           <AddDeck addDeckMode={addDeckMode} 
             setAddDeckMode={setAddDeckMode} 
@@ -49,9 +44,10 @@ export default function Decks() {
             setAddCardMode={setAddCardMode}
             userCard={userCard}
             setUserCard={setUserCard}
+            getDecks={getDecks}
           />
       :
-        <div className='card-grid'>
+        <div className='deck-grid'>
           {decks.map((deck, index) => <Deck key={index} data={deck} index={index} decks={decks} setDecks={setDecks}/>)}
         </div>
       }
