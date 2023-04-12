@@ -75,10 +75,11 @@ import React, {useState, useEffect} from 'react'
 import axios from 'axios'
  //import Decks from "../Decks/Decks"
 // import Deck from "../Decks/Deck"
-import Study from "../Study/Study"
+// import Study from "../Study/Study"
 import Timer from "../Study/Timer"
 import StopWatch from "../Study/StopWatch"
 import Quiz from "./Quiz"
+import "./Study.css"
 
 function StudyContainer() {
   const [decks, setDecks] = useState([]);
@@ -93,7 +94,7 @@ function StudyContainer() {
   
   useEffect(() => {
     if (selectedDeck) {
-      axios.get(`/decks/${selectedDeck.id}/cards`)
+      axios.get(`/flashcards/${selectedDeck._id}`)
         .then(response => setCards(response.data))
         .catch(error => console.log(error));
     } else {
@@ -104,7 +105,7 @@ function StudyContainer() {
   const [showQuiz, setShowQuiz] = useState(false);
   const [showStudy, setShowStudy] = useState(false);
   
-  console.log(showQuiz)
+  console.log(cards)
   return (
     <div>
     <div className='timers-section'>
@@ -113,18 +114,16 @@ function StudyContainer() {
     </div>
     <div>  
     <label htmlFor="deck-select">Select a deck:</label>
-      <select id="deck-select" onChange={(e) => setSelectedDeck(decks.find(deck => deck.id === (e.target.value)))}>
-      console.log(e.target.value)
+      <select id="deck-select" onChange={(e) => setSelectedDeck(decks.find(deck => deck._id === (e.target.value)))}>
         <option value=""></option>
         {decks.map(deck => 
-          <option key={deck.id} value={deck.id}>{deck.title}</option>)}
+          <option key={deck._id} value={deck._id}>{deck.title}</option>)}
       </select>
 
 <div className="question-list">
 <div>
     {showQuiz ? 
-  
-      cards.map((card, index) => <Quiz key = {index} data = {card} index = {index} cards = {cards} />
+      cards.map((card, index) => <Quiz key = {index} showQuiz = {showQuiz} showStudy = {showStudy} data = {card} index = {index} cards = {cards} />
     
        ) : ( 
 
@@ -133,12 +132,8 @@ function StudyContainer() {
 </div>
 
 
-  {cards.length > 0 && (
-        <div className="timer-container">
-          <Timer />
-          <StopWatch />
-        </div>
-      )}
+  
+  
       <div className="button-container">
         <button onClick={() => setShowQuiz(!showQuiz)}>Start Quiz</button>
         <button onClick={() => setShowStudy(!showStudy)}>Study Cards</button>
