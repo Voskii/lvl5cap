@@ -7,7 +7,7 @@ import "../EditCard/EditCard.css"
 
 
 function AddDeck(props) {
-  const {addDeckMode, setAddDeckMode, setUserDeck, userDeck, addCardMode, setAddCardMode, userCard, setUserCard}  = props
+  const {addDeckMode, setAddDeckMode, setUserDeck, userDeck, addCardMode, setAddCardMode, userCard, setUserCard, getDecks}  = props
   const [newDeckId, setNewDeckId] = useState('')
   const [cards, setCards] = useState([])
 
@@ -21,7 +21,7 @@ function AddDeck(props) {
     //     .catch(err => {
     //       console.log(err)
     //     })
-    
+    getDecks()
     console.log(`create card func cards state:`, cards)
     setAddCardMode(!addCardMode)
     setAddDeckMode(!addDeckMode)
@@ -104,7 +104,7 @@ function AddDeck(props) {
       <div className="page2-body">
         <div className='buttons'>
         {/* {addCardMode?<button onClick={()=>{createDeck(userDeck)}}>Prev</button>:''} */}
-        {addDeckMode?<button onClick={()=>{createDeck(userDeck)}}>Next</button>:''}
+        {addDeckMode && !addCardMode?<button onClick={()=>{createDeck(userDeck)}}>Next</button>:''}
         {addCardMode?<button onClick={()=>{createCard(userCard)}}>Create Card</button>:''}
       </div>
       <div className='deck-component'>

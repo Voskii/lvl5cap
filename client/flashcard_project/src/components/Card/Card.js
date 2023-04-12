@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import './Card.css'
 
 function Card(props) {
-  const {data, index, cards, setCards} = props
+  const {data, index, cards, setCards, setShowCard, showCard} = props
   const [EditCard, setEditCard] = useState(false)
   const [userState, setUserState] = useState({
     question: data.question,
@@ -34,25 +34,20 @@ function Card(props) {
         .catch(err => console.log(err))
     setEditCard(!EditCard)
   }
-  // setCards(prev => prev.filter(card => card._id !== cardId))
+  
   const delCard = (cardId) => {
     console.log(`ID of card DELETED:`, cardId)
       axios.delete(`/flashcards/${cardId}`)
         .then(res => {
-            setCards(prev => prev.filter(card => card._id !== data._id))
+            setCards(prev => prev.filter(card =>  card._id !== cardId))
+            console.log('cards filter', cards.filter(card => card._id !== cardId))
             })
+        // axios.get('/decks')
+        // .then(res => setCards(res.data))
         .catch(err => console.log(err))
-        
+        setShowCard(!showCard)
     }
   
-
-  // const delDeck = (deckId) => {
-  //   axios.delete(`/decks/${deckId}`)
-  //       .then(res => {
-  //           setDecks(prev => prev.filter(deck => deck._id !== deckId))
-  //       })
-        // .catch(err => console.log(err))
-
   console.log(data)
   return (
     <div className='flashcard'>
