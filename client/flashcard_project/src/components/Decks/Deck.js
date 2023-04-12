@@ -59,7 +59,7 @@ export default function Deck(props){
             <h2>{data.title}</h2>
                 <div>
                     <h2 className='card-length'>{cards.length === 0? '': `Cards:${cards.length}`}</h2>
-                    {cards.length && clicked=== 0?
+                    {cards.length === 0 && clicked ?
                         <div>
                             <button className='deckbutt' onClick={() => delDeck(data._id)}>Delete Deck</button>
                         </div>
