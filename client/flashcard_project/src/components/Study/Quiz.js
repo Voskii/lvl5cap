@@ -75,10 +75,11 @@ import React, { useState } from 'react';
 import Card from '../Card/Card';
 
 function Quiz(props) {
-  const { cards } = props;
+  const { cards, data } = props;
   const [cardIndex, setCardIndex] = useState(0);
   const [correctAnswers, setCorrectAnswers] = useState(0);
   const [showAnswer, setShowAnswer] = useState(false);
+  
 
   const handleNextCard = (isCorrect) => {
     if (isCorrect) {
@@ -95,7 +96,7 @@ function Quiz(props) {
       {cardIndex + 1 <= cards.length ? (
         <div>
           <h3>Card {cardIndex + 1} of {cards.length}</h3>
-          <Card card={cards[cardIndex]} showAnswer={showAnswer} />
+          <Card card={cards[cardIndex]} data = {data} showAnswer={showAnswer}  />
           {!showAnswer && <button onClick={() => setShowAnswer(true)}>Show Answer</button>}
           {showAnswer && (
             <div>
