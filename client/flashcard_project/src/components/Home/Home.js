@@ -13,7 +13,7 @@ function Home() {
     <header className='head-container'>
     </header>
     <main>
-    <h1>About us</h1>
+    <h1 className='home-header'>About us</h1>
     <p className='about-us-text'>Welcome to our self-study and self-quizzing website - the ultimate destination for lifelong learners! 
     Are you someone who is passionate about acquiring new knowledge and developing new skills? Do you find yourself constantly seeking 
     opportunities to challenge your mind and expand your horizons? Look no further! Our website offers a unique and innovative approach 
