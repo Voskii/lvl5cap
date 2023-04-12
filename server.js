@@ -5,6 +5,8 @@ const mongoose = require('mongoose')
 require('dotenv').config()
 uri = process.env.URI
 
+
+mongoose.set('strictQuery', true);
 //Middleware (for every request)
 app.use('/decks', express.json())
 app.use('/comments', express.json())
