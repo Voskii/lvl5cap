@@ -32,10 +32,12 @@
 .page{
   background-color: #B2A2CF;
   font-family: 'Alkatra', cursive;
+  padding-bottom: 80px;
 }
 
 .deck-grid{
   padding-bottom: 20px;
+  padding-top: 30px;
 }
 
 .card-length{
