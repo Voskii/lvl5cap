@@ -4,10 +4,6 @@ footer{
   margin-top: 80px;
   max-width: 100%;
 }
-h1{
-  font-size: 25px;
-  text-transform: uppercase;
-}
 .logo-image-container{
   background-image: url("./images/footerImage.png");
   background-size: cover;
