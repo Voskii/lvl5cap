@@ -124,6 +124,7 @@ function AddDeck(props) {
               onChange={handleCardChange}
               name="question"
               value={userCard.question}
+              maxlength="55"
             >
             </input>
           <h2>Answer</h2>
@@ -132,9 +133,10 @@ function AddDeck(props) {
               onChange={handleCardChange}
               name="answer"
               value={userCard.answer}
+              maxlength="55"
             >
             </input>
-            <button onClick={()=>{backOut(cards)}} className="new-deck-info finish-butt">Finish Crafting</button>
+            <button onClick={()=>{backOut(cards)}} className="new-deck-info finish-butt">Finish & Exit</button>
             </div>
         </div>
         :
