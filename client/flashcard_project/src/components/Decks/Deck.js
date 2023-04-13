@@ -51,7 +51,7 @@ export default function Deck(props){
         <div>
             {showCard? <button onClick={()=>{setShowCard(!showCard)}}>Close Deck</button> : ''}
             {showCard?
-            cards.map((card, index) => <Card key={index} data={card} index={index} cards={cards} setCards={setCards} showCard={showCard} setShowCard={setShowCard}/>)
+            cards.map((card, index) => <Card key={index} data={card} index={index} cards={cards} setCards={setCards} showCard={showCard} setShowCard={setShowCard} deckVisible={true}/>)
             :
             ''
             }

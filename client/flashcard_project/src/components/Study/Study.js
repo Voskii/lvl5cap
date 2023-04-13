@@ -8,15 +8,10 @@ function Study(props) {
     <div>
       <h3 className='list'>Question List</h3>
       <ul className='study-list'>
-        {cards.map((card) => (
-          <li key={card.id}>
-            <Card card={card} showAnswer={true} data={data}/>
-          </li>
-        ))}
+        <Card card={cards} showAnswer={true} data={data} />
       </ul>
     </div>
   );
 }
 
 export default Study;
-
