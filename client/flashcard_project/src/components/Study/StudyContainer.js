@@ -59,26 +59,23 @@ function StudyContainer() {
 
 <div className="question-list">
 <div>
-{!showStudy && showQuiz?
-  cards.map((card, index) => <Quiz key = {index} showQuiz = {showQuiz} data = {card} index = {index} cards = {cards} />) 
-:
-!showQuiz && showStudy?
-  cards.map((card, index) => <Study key = {index} showStudy = {showStudy} data = {card} index = {index} cards = {cards} />) 
-:
-  ''
-}
+    {!showStudy && showQuiz?
+      cards.map((card, index) => <Quiz key = {index} showQuiz = {showQuiz} data = {card} index = {index} cards = {cards} />) 
+    :  
+    !showQuiz && showStudy?
+      cards.map((card, index) => <Study key = {index} showStudy = {showStudy} data = {card} index = {index} cards = {cards} />) 
+    :
+      ''
+  }
 </div>
-</div>
-<div className="button-container">
-<button onClick={() => swapQuizState()}>Start Quiz</button>
-<button onClick={() => swapStudyState()}>Study Cards</button>
-</div>
+      <div className="button-container">
+        <button onClick={() => swapQuizState()}>Start Quiz</button>
+        <button onClick={() => swapStudyState()}>Study Cards</button>
+      </div>
     </div>
   </div>
   </div>
 );
 }
 
-
 export default StudyContainer
-

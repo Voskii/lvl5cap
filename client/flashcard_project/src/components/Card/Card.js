@@ -74,8 +74,25 @@ function Card(props) {
         ""
         :
         <div>
-          <button onClick={() => setEditCard(!EditCard)}>Edit</button>
-          <button onClick={() => delCard(userState.cardId)}>Delete</button>
+
+          <div className='card-buttons tform'>
+            {showQuiz || showStudy ?
+            ""
+            :
+            <div>
+              <button onClick={() => setEditCard(!EditCard)}>Edit</button>
+              <button onClick={() => delCard(userState.cardId)}>Delete</button>
+            </div>
+            }
+          
+          </div>
+          <h2>Q:{userState.question}</h2>
+          {!showAnswer || showQuiz?
+          ''
+          :
+          <h2>A:{userState.answer}</h2>
+          }
+
         </div>
         }
 
