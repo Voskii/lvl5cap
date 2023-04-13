@@ -30,7 +30,9 @@ function Study(props) {
     <div>
       <h3 className='list'>Question List</h3>
       <ul className='study-list'>
+
         <Card className = "card-component-study" card={cards} showAnswer={true} data={data} />
+
       </ul>
     </div>
   );

@@ -96,8 +96,11 @@ function Quiz(props) {
       {cardIndex + 1 <= cards.length ? (
         <div>
           <h3>Card {cardIndex + 1} of {cards.length}</h3>
+
           <Card className = "card-component-quiz" card={cards[cardIndex]} data = {data} showAnswer={showAnswer}  isQuizComp={true} />
           {!showAnswer && <button className='answer-quiz-button' onClick={() => setShowAnswer(true)}>Show Answer</button>}
+
+
           {showAnswer && (
             <div className='correct-and-incorrect'>
               <button className='correct' onClick={() => handleNextCard(true)}>Correct</button>
