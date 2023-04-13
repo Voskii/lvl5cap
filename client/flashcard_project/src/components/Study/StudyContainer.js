@@ -43,7 +43,7 @@ function StudyContainer() {
   }
 
   return (
-    <div>
+    <div className='study-container'>
     <div className='timers-and-list-container'>
     <div className='timers-section'>
       <Timer />

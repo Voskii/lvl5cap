@@ -1,6 +1,5 @@
 .counter-container{
-  padding-top: 35px;
-  padding-bottom: 35px;
+
   display: flex;
   flex-direction: column;
   position: static;
@@ -42,15 +41,18 @@
   border-radius: 4px;
   padding: 20px;
   width: 282px;
-  background-color: white;
+  background-color: #66bec6;;
   box-shadow: 0 3px 6px rgb(12, 12, 12);
+
 }
 .timer {
   padding-top: 20px;
+  margin-top: 40px;
 }
 
 .timer-header,
 .stopwatch-header {
+  font-family: 'Noto Sans Mono', monospace;
   font-size: 25px;
   font-weight: bold;
   color: black;
@@ -66,6 +68,8 @@ button {
   margin: 0 5px;
   cursor: pointer;
   font-weight: 900;
+  height: 45px;
+  font-family: 'Noto Sans Mono', monospace;font-family: 'Noto Sans Mono', monospace;
 }
 button:hover {
   background-color: black;
@@ -73,7 +77,7 @@ button:hover {
 }
 .stopwatch button {
   padding: 12px 32px;
-  font-size: 20px;
+  font-size: 14px;
   color:black;
 }
 .stopwatch-display {
@@ -84,7 +88,7 @@ button:hover {
 
 .timer-display {
   margin-top: 5px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   color: black;
 }
 .timer-display button {
@@ -93,7 +97,6 @@ button:hover {
   border-radius: 2px;
   padding: 4px 16px;
   color: black;
-
   font-size: 16px;
 }
 .timer-display button:hover {
@@ -107,7 +110,7 @@ button:hover {
   color: black;
 }
 .timer-time {
-  font-size: 36px;
+  font-size: 34px;
   margin: 5px 0;
   color: black;
 } 
@@ -117,19 +120,29 @@ button:hover {
   flex-direction: column;
   flex-wrap: nowrap;
   height: 35px;
+  font-family: 'Noto Sans Mono', monospace;
 }
+
+button:hover{
+  background-color: black;
+  color: white;
+  border: 2px solid #ccff00;
+}
+
 .question-list{
   border: 1px solid black;
   height: 650px;
-  width: 850px;
+  width: 950px;
   max-width: 100%;
   overflow-y: scroll;
   margin: 0 auto;
+  font-family: 'Noto Sans Mono', monospace;
 }
 .button-and-list-container{
   display: flex;
   flex-direction: column;
   max-width: 100%;
+  
 }
 .study{
   display: flex;
@@ -142,7 +155,48 @@ select{
 .timers-and-list-container{
   display: flex;
   flex-direction: row;
+  flex-wrap: nowrap;
 }
 .study-list{
   list-style: none;
+}
+
+.answer-quiz-button{
+  font-family: 'Noto Sans Mono', monospace;
+}
+.flashcard{
+  background-color: #66bec6;
+  border: 4px outset #969696;
+  max-width: 100%;
+}
+.study-container{
+  background-color: #ffffff;
+}
+
+.card-quiz-container{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+
+label{
+  font-family: 'Noto Sans Mono', monospace;
+}
+#deck-select{
+  font-family: 'Noto Sans Mono', monospace;
+}
+
+.quiz-component{
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+.correct-and-incorrect{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
 }
