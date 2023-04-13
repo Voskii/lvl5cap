@@ -44,6 +44,7 @@ function StudyContainer() {
 
   return (
     <div>
+    <div className='timers-and-list-container'>
     <div className='timers-section'>
       <Timer />
       <StopWatch />
@@ -77,6 +78,4 @@ function StudyContainer() {
 );
 }
 
-
 export default StudyContainer
-

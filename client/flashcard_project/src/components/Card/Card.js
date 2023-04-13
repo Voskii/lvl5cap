@@ -68,7 +68,13 @@ function Card(props) {
             ></input>
         </div>
       :
+      <div>
+      <div className='card-buttons tform'>
+        {showQuiz || showStudy ?
+        ""
+        :
         <div>
+
           <div className='card-buttons tform'>
             {showQuiz || showStudy ?
             ""
@@ -86,8 +92,19 @@ function Card(props) {
           :
           <h2>A:{userState.answer}</h2>
           }
-          
+
         </div>
+        }
+
+      </div>
+      <h2>Q:{userState.question}</h2>
+      {!showAnswer || showQuiz?
+      ''
+      :
+      <h2>A:{userState.answer}</h2>
+      }
+
+    </div>
       }
       
     </div>
