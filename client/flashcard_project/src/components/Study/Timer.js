@@ -57,35 +57,35 @@ function Timer() {
       </div>
       <div className="timer-label">Hours : Minutes : Seconds</div>
 <div className="=timer-display">
-  <button onClick={() => adjustTimer("incHours")}>&#8679;</button>
-  <button onClick={() => adjustTimer("incMinutes")}>&#8679;</button>
-  <button onClick={() => adjustTimer("incSeconds")}>&#8679;</button>
-  <button onClick={() => adjustTimer("decHours")}>&#8681;</button>
-  <button onClick={() => adjustTimer("decMinutes")}>&#8681;</button>
-  <button onClick={() => adjustTimer("decSeconds")}>&#8681;</button>
+  <button className='increment-button' onClick={() => adjustTimer("incHours")}>&#8679;</button>
+  <button className='increment-button' onClick={() => adjustTimer("incMinutes")}>&#8679;</button>
+  <button className='increment-button' onClick={() => adjustTimer("incSeconds")}>&#8679;</button>
+  <button className='decrement-button' onClick={() => adjustTimer("decHours")}>&#8681;</button>
+  <button className='decrement-button' onClick={() => adjustTimer("decMinutes")}>&#8681;</button>
+  <button className='decrement-button' onClick={() => adjustTimer("decSeconds")}>&#8681;</button>
 </div>
-      <div className='start'>
+      <div >
         {timerOn === false && (timerStart === 0 || timerTime === timerStart) && (
-          <button onClick={startTimer}>Start</button>
+          <button className='start' onClick={startTimer}>Start</button>
         )}
       </div>
-      <div className='stop'>
+      <div >
         {timerOn === true && timerTime >= 1000 && (
-          <button onClick={stopTimer}>Stop</button>
+          <button className='stop' onClick={stopTimer}>Stop</button>
         )}
       </div>
-      <div className='resume'>
+      <div >
         {timerOn === false &&
           timerStart !== 0 &&
           timerStart !== timerTime &&
           timerTime !== 0 && (
-            <button onClick={startTimer}>Resume</button>
+            <button className='resume' onClick={startTimer}>Resume</button>
           )}
       </div>
-      <div className='reset'>
+      <div >
         {timerOn === false ||
           (timerTime !== 0 && timerStart !== timerTime && timerStart !== 0) ? (
-          <button onClick={resetTimer}>Reset</button>
+          <button className='reset' onClick={resetTimer}>Reset</button>
         ) : null}
       </div>
     </div>
