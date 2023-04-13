@@ -75,6 +75,7 @@ function StudyContainer() {
     </div>
   </div>
   </div>
+  </div>
 );
 }
 
