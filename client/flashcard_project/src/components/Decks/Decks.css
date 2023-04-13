@@ -1,6 +1,5 @@
 .deck{
   align-items: center;
-  background-color: #ab70e6;
   border-radius: 2%;
   display: flex;
   max-width: 100%;
@@ -8,6 +7,7 @@
   height: 200px;
   width: 600px;
   cursor: pointer;
+  background-color:#236c70;
   margin-bottom: 50px;
 }
 .decks-container{
@@ -30,7 +30,7 @@
 }
 
 .page{
-  background-color: #B2A2CF;
+  background-color: #ffffff;
   font-family: 'Alkatra', cursive;
   padding-bottom: 80px;
 }
