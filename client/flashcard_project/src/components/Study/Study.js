@@ -6,8 +6,8 @@ function Study(props) {
 
   return (
     <div>
-      <h3>Question List</h3>
-      <ul>
+      <h3 className='list'>Question List</h3>
+      <ul className='study-list'>
         {cards.map((card) => (
           <li key={card.id}>
             <Card card={card} showAnswer={true} data={data}/>

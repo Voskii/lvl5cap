@@ -68,19 +68,26 @@ function Card(props) {
             ></input>
         </div>
       :
+      <div>
+      <div className='card-buttons tform'>
+        {showQuiz || showStudy ?
+        ""
+        :
         <div>
-          <div className='card-buttons tform'>
           <button onClick={() => setEditCard(!EditCard)}>Edit</button>
           <button onClick={() => delCard(userState.cardId)}>Delete</button>
-          </div>
-          <h2>Q:{userState.question}</h2>
-          {!showAnswer || showQuiz?
-          ''
-          :
-          <h2>A:{userState.answer}</h2>
-          }
-          
         </div>
+        }
+
+      </div>
+      <h2>Q:{userState.question}</h2>
+      {!showAnswer || showQuiz?
+      ''
+      :
+      <h2>A:{userState.answer}</h2>
+      }
+
+    </div>
       }
       
     </div>
