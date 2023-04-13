@@ -3,7 +3,7 @@ import axios from 'axios'
 import './Card.css'
 
 function Card(props) {
-  const {data, index, cards, setCards, setShowCard, showCard, showAnswer, showQuiz, showStudy} = props
+  const {data, index, cards, setCards, setShowCard, showCard, showAnswer, showQuiz, showStudy, deckVisible, isQuizComp} = props
   const [EditCard, setEditCard] = useState(false)
   const [userState, setUserState] = useState({
     question: data.question,
@@ -68,45 +68,27 @@ function Card(props) {
             ></input>
         </div>
       :
-      <div>
-      <div className='card-buttons tform'>
-        {showQuiz || showStudy ?
-        ""
-        :
-        <div>
-
-          <div className='card-buttons tform'>
-            {showQuiz || showStudy ?
-            ""
-            :
-            <div>
-              <button onClick={() => setEditCard(!EditCard)}>Edit</button>
-              <button onClick={() => delCard(userState.cardId)}>Delete</button>
+        <div className='card-buttons '>
+          <div>
+            <div className='card-buttons tform'>
+              <div>
+                {deckVisible?
+                  <div>
+                    <button onClick={() => setEditCard(!EditCard)}>Edit</button>
+                    <button onClick={() => delCard(userState.cardId)}>Delete</button>
+                  </div>
+                :
+                ''
+                }
+              </div>
             </div>
-            }
-          
+            <h2>Q:{userState.question}</h2>
+            {deckVisible?<h2>A:{userState.answer}</h2>:''}
+            {isQuizComp && showAnswer?<h2>A:{data.answer}</h2>:''}
+            {!isQuizComp && showAnswer?<h2>A:{data.answer}</h2>:''}
           </div>
-          <h2>Q:{userState.question}</h2>
-          {!showAnswer || showQuiz?
-          ''
-          :
-          <h2>A:{userState.answer}</h2>
-          }
-
         </div>
-        }
-
-      </div>
-      <h2>Q:{userState.question}</h2>
-      {!showAnswer || showQuiz?
-      ''
-      :
-      <h2>A:{userState.answer}</h2>
       }
-
-    </div>
-      }
-      
     </div>
   )
 }

@@ -96,7 +96,7 @@ function Quiz(props) {
       {cardIndex + 1 <= cards.length ? (
         <div>
           <h3>Card {cardIndex + 1} of {cards.length}</h3>
-          <Card card={cards[cardIndex]} data = {data} showAnswer={showAnswer}  />
+          <Card card={cards[cardIndex]} data = {data} showAnswer={showAnswer}  isQuizComp={true} />
           {!showAnswer && <button onClick={() => setShowAnswer(true)}>Show Answer</button>}
           {showAnswer && (
             <div>
